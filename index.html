@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram Clone</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: sans-serif;
+        background: #fff;
+        text-align: center;
+      }
+      .screen {
+        display: none;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .active {
+        display: flex !important;
+      }
+      .meta-text {
+        position: absolute;
+        bottom: 20px;
+        font-size: 14px;
+        color: #666;
+      }
+      .meta-text span {
+        color: #fb3958;
+        font-weight: bold;
+      }
+      .form-container {
+        width: 90%;
+        max-width: 400px;
+        text-align: left;
+      }
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .next-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        margin-top: 10px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+        background-color: #0095f6;
+      }
+      .checkmark {
+        font-size: 60px;
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="screen active" id="logoScreen">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+        alt="Instagram Logo"
+        width="80"
+      />
+      <div class="meta-text">from <span>Meta</span></div>
+    </div>
+    <div class="screen" id="usernameScreen">
+      <h2>Register</h2>
+      <div>English (UK)</div>
+      <div class="form-container">
+        <input type="text" placeholder="Username" id="username" />
+        <button class="next-btn" onclick="goToPasswordScreen()">Next</button>
+      </div>
+    </div>
+    <div class="screen" id="passwordScreen">
+      <h2>Security</h2>
+      <div class="form-container">
+        <input type="password" placeholder="Old Password" id="oldPassword" />
+        <input type="password" placeholder="New Password" id="newPassword" />
+        <button class="next-btn" onclick="goToSuccessScreen()">Next</button>
+      </div>
+    </div>
+    <div class="screen" id="successScreen">
+      <div class="checkmark">✔</div>
+      <p>Success</p>
+    </div>
+    <script>
+      setTimeout(() => {
+        document.getElementById("logoScreen").classList.remove("active");
+        document.getElementById("usernameScreen").classList.add("active");
+      }, 3000);
+
+      function goToPasswordScreen() {
+        document.getElementById("usernameScreen").classList.remove("active");
+        document.getElementById("passwordScreen").classList.add("active");
+      }
+
+      function goToSuccessScreen() {
+        document.getElementById("passwordScreen").classList.remove("active");
+        document.getElementById("successScreen").classList.add("active");
+      }
+    </script>
+  </body>
+</html>
